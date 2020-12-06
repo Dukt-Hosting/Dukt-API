@@ -4,17 +4,16 @@
   "description": "The API suite for Dukt Hosting",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dukt-Hosting/Dukt-API.git"
   },
   "keywords": [
-    "API",
-    "Express",
-    "Authentication",
-    "Database"
+    "api",
+    "express",
+    "database"
   ],
   "author": "Dukt Hosting",
   "license": "UNLICENSED",
@@ -25,6 +24,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "path": "^0.12.7",
     "pg": "^8.5.1"
   }
 }
