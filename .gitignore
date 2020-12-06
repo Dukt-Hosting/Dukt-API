@@ -103,6 +103,6 @@ dist
 # TernJS port file
 .tern-port
 
-# Config files
+# Config filesaqwww
 config/config.json
 .vsls.json
