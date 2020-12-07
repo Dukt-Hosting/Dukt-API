@@ -1,7 +1,7 @@
 /**
  * Adds a GET route to the server
  * 
- * @param {import('express').express} app - The Express App to serve the file on
+ * @param {import('express')()} app - The Express App to serve the file on
  * @param {string} filePath - The path of the file to be served
  * @param {string} route - The route to serve the file on
  */

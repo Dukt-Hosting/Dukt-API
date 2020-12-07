@@ -5,5 +5,9 @@
         "database" : "",
         "password" : "",
         "port" : 5432
+    },
+    "webserver" : {
+        "port" : "3000",
+        "bindAddress" : "0.0.0.0"
     }
 }
