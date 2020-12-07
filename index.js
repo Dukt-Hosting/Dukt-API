@@ -12,4 +12,4 @@ client.connect().then(async () => {
     await client.end();
 });
 
-DuktServer.startRouting();
+DuktServer.startServer();

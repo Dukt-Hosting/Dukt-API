@@ -24,7 +24,7 @@ checkConfig = (config) => {
 class DuktServer {
     constructor(config) {
         this._server = express();
-        this._api = new api.DuktAPI()
+        this._api = new api.DuktAPI(config)
         this._server.use("/api", this._api._router)
         checkConfig(config)
         this._config = config;
@@ -40,7 +40,7 @@ class DuktServer {
     /**
      * Starts the express server with base routes
      */
-    async startRouting() {
+    async startServer() {
         this._server.get('/', async (req, res) => {
             res.sendFile(path.join(__dirname, '/views/index.html'))
         })
