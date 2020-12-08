@@ -1,9 +1,9 @@
 const fs = require('fs').promises;
 
 /**
- * Applies a schema or some shit idfk
+ * Applies a schema to the postgres database
  * 
- * @param {import('pg').Client} client - The Postgres client to cum inside
+ * @param {import('pg').Client} client - The Postgres client to apply the schema to
  * @param {string} schemaPath - The path to the schema file
  */
 applySchema = async (client, schemaFile) => {

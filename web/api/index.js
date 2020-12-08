@@ -13,7 +13,8 @@ class DuktAPI {
         this._router = router;
         this._config = config;
         this.DuktAdmin = new admin.DuktAdmin(config);
-        this.DuktClient = new client.DuktClient(config); this._router.use("/admin", this.DuktAdmin._router);
+        this.DuktClient = new client.DuktClient(config);
+        this._router.use("/admin", this.DuktAdmin._router);
         this._router.use("/admin", this.DuktClient._router);
     }
 

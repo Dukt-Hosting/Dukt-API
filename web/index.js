@@ -24,9 +24,10 @@ checkConfig = (config) => {
 class DuktServer {
     constructor(config) {
         this._server = express();
-        this._api = new api.DuktAPI(config)
+        this.DuktAPI = new api.DuktAPI(config)
         this._server.use("/api", this._api._router)
         checkConfig(config)
+        this._webconfig = config.webserver;
         this._config = config;
     }
 
@@ -45,7 +46,7 @@ class DuktServer {
             res.sendFile(path.join(__dirname, '/views/index.html'))
         })
 
-        this._server.listen(this._config.port, this._config.bindAddress)
+        this._server.listen(this._webconfig.port, this._webconfig.bindAddress)
     }
 }
 

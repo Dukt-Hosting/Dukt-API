@@ -1,11 +1,12 @@
 const { Client } = require('pg');
+const path = require('path')
 
 const config = require('./config/config.json');
 const utils = require("./utils");
 const web = require('./web');
 
 const client = new Client(config.database);
-const DuktServer = new web.DuktServer(config.webserver)
+const DuktServer = new web.DuktServer(config)
 
 client.connect().then(async () => {
     await utils.database.applySchema(client, "./config/database_schema.pgsql");
@@ -13,3 +14,5 @@ client.connect().then(async () => {
 });
 
 DuktServer.startServer();
+
+console.log(DuktServer.getRoutes())
