@@ -10,9 +10,8 @@ const DuktServer = new web.DuktServer(config)
 
 client.connect().then(async () => {
     await utils.database.applySchema(client, "./config/database_schema.pgsql");
+    await client.query(`INSERT INTO user_data`);
     await client.end();
 });
 
 DuktServer.startServer();
-
-console.log(DuktServer.getRoutes())

@@ -8,7 +8,19 @@ const database = require('./database.js')
  */
 const serverutils = require('./serverutils.js')
 
+/**
+ * Key Generation Utils
+ */
+const keyGen = require('./key_gen.js')
+
+/**
+ * HTTP Utils
+ */
+const httputils = require('./httputils.js')
+
 module.exports = {
     database,
-    serverutils
+    serverutils,
+    keyGen,
+    httputils
 }

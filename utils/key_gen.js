@@ -3,6 +3,6 @@ const hat = require('hat')
 /**
  * Gens a API key then returns it
  */
-exports.genKey = async () => {
+module.exports = async () => {
     return hat()
 }
