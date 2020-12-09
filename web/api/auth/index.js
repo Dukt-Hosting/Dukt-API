@@ -11,7 +11,7 @@ class DuktAuth {
         this._router.use(bodyParser.json())
     }
 
-    async _startRouting() {
+    async startRouting() {
         this._router.get('/', async (req, res) => {
             res.send("AUTH ENDPOINT")
         })

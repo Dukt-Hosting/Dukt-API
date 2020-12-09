@@ -10,7 +10,7 @@ class DuktAdmin {
         this._router.use(bodyParser.json())
     }
 
-    async _startRouting() {
+    async startRouting() {
         this._router.post('/eval', async (req, res) => {
             
         })

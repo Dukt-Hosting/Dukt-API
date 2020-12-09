@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 
 const client = require('./client')
 const admin = require('./admin')
+const auth = require('./auth')
 
 var router = express.Router();
 
@@ -15,11 +16,14 @@ class DuktAPI {
         this._config = config;
         this.DuktAdmin = new admin.DuktAdmin(config);
         this.DuktClient = new client.DuktClient(config);
-        this.DuktAdmin._startRouting()
-        this.DuktClient._startRouting()
+        this.DuktAuth = new auth.DuktAuth(config);
+        this.DuktAdmin.startRouting();
+        this.DuktClient.startRouting();
+        this.DuktAuth.startRouting();
         this._router.use("/admin", this.DuktAdmin._router);
-        this._router.use("/admin", this.DuktClient._router);
-        this._router.use(bodyParser.json())
+        this._router.use("/client", this.DuktClient._router);
+        this._router.use("/auth", this.DuktAuth._router);
+        this._router.use(bodyParser.json());
     }
 
     async _startRouting() {

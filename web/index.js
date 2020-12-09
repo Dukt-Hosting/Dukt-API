@@ -3,18 +3,17 @@ const path = require("path")
 const bodyParser = require('body-parser')
 
 const api = require("./api")
-const auth = require("./auth")
-const errors = require("./errors")
+const errors = require("./errors.js")
 
 checkConfig = (config) => {
     if (!config) {
-        throw new errors.InvalidConfig("No Config Was Provided!");
+        throw new errors.ConfigError("No config provided");
     };
     if (!config.webserver.port) {
-        throw new errors.InvalidConfig("Cant Find config.port");
+        throw new errors.ConfigError("Cant Find config.port");
     };
     if (!config.webserver.bindAddress) {
-        throw new errors.InvalidConfig("Canf Find config.bindAddress");
+        throw new errors.ConfigError("Canf Find config.bindAddress");
     };
 
     return;
@@ -22,17 +21,17 @@ checkConfig = (config) => {
 
 /**
  * Makes a new Express server for DuktServer (find a better name later :tm:)
+ * 
+ * @param {object} config - Configuration object
+ * @param {string} config.webserver - The public name for the server to show
  */
 class DuktServer {
     constructor(config) {
         this._server = express();
         this.DuktAPI = new api.DuktAPI(config)
         this.DuktAPI._startRouting()
-        this.DuktAuth = new auth.DuktAuth(config)
-        this.DuktAuth._startRouting()
-        this._server.use("/api", this.DuktAPI._router)
-        this._server.use("/auth", this.DuktAuth._router)
         this._server.use(bodyParser.json())
+        this._server.use("/api", this.DuktAPI._router)
         checkConfig(config)
         this._webconfig = config.webserver;
         this._config = config;
@@ -41,7 +40,7 @@ class DuktServer {
     /**
      * Returns all routes in the DuktServer class
      */
-    async getRoutes() {
+    async getRoutes() { //! doesn't need to be async
         return this._server._router.stack
     }
 
