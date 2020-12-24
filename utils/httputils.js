@@ -1,3 +1,8 @@
+// ==============================
+//      Licensed Under GNUv3
+//       Dukt Hosting 2020
+// ==============================
+
 const fetch = require('node-fetch')
 
 /**

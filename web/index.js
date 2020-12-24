@@ -1,3 +1,8 @@
+// ==============================
+//      Licensed Under GNUv3
+//       Dukt Hosting 2020
+// ==============================
+
 const express = require("express");
 const path = require("path")
 const bodyParser = require('body-parser')
@@ -13,7 +18,7 @@ checkConfig = (config) => {
         throw new errors.ConfigError("Cant Find config.port");
     };
     if (!config.webserver.bindAddress) {
-        throw new errors.ConfigError("Canf Find config.bindAddress");
+        throw new errors.ConfigError("Cant Find config.bindAddress");
     };
 
     return;
@@ -51,6 +56,7 @@ class DuktServer {
         this._server.get('/', async (req, res) => {
             res.sendFile(path.join(__dirname, '/views/index.html'))
         })
+
 
         this._server.listen(this._webconfig.port, this._webconfig.bindAddress)
     }

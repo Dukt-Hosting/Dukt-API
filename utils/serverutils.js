@@ -1,3 +1,8 @@
+// ==============================
+//      Licensed Under GNUv3
+//       Dukt Hosting 2020
+// ==============================
+
 /**
  * Adds a GET route to the server
  * 

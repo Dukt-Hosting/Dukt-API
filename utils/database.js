@@ -1,4 +1,25 @@
+// ==============================
+//      Licensed Under GNUv3
+//       Dukt Hosting 2020
+// ==============================
+
 const fs = require('fs').promises;
+const { Client, Pool }
+
+class PGClient extends Client {
+
+    async cleanQuery(query, values)
+
+}
+
+
+
+
+
+
+
+
+
 
 /**
  * Applies a schema to the postgres database
